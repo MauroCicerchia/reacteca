@@ -1,0 +1,15 @@
+body {
+    color: white;
+    background-color: rgb(27, 27, 56);
+    padding: 25px;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+.clase-li {
+    color: #fafafa;
+    font-weight: 600;
+}

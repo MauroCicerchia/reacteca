@@ -1,0 +1,9 @@
+.kuberneteca-container {
+    border-style: dotted;
+    transition: all 0.6s linear;
+    padding: 10px;
+}
+ 
+.kuberneteca-container:hover { 
+    border-width: 5px;
+}
