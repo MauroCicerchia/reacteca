@@ -46,18 +46,19 @@ class App extends Component {
 	render() {
 		console.log(this.state);
 		return (
-      <>
-        {/* <div>
-        <p>Hola Mundo!</p>
-        {this.state.valor === 3 && <Button chanchito="feliz" />}
-        <button onClick={() => this.setState({ valor: 1 })}>Enviar en App</button>
-        </div> */}
-			<p>
-				Nombre completo: {this.state.nombre} {this.state.apellido}
-			</p>
-      <Input value={this.state.nombre} onChange={(e) => this.updateValues("nombre", e.target.value)} />
-      <Input value={this.state.apellido} onChange={(e) => this.updateValues("apellido", e.target.value)} />
-      </>
+			<>
+				<div>
+					<p>Hola Mundo!</p>
+					{/* {this.state.valor === 3 && <Button chanchito="feliz" />} */}
+					<Button chanchito="feliz" />
+					<button onClick={() => this.setState({ valor: 1 })}>Enviar en App</button>
+				</div>
+				<p>
+					Nombre completo: {this.state.nombre} {this.state.apellido}
+				</p>
+				<Input value={this.state.nombre} onChange={(e) => this.updateValues("nombre", e.target.value)} />
+				<Input value={this.state.apellido} onChange={(e) => this.updateValues("apellido", e.target.value)} />
+			</>
 		);
 	}
 }
