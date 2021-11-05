@@ -24,7 +24,10 @@ class Contador extends Component {
 	};
 
 	sumar() {
-		this.setState({ contadores: { ...this.state.contadores, equipo1: this.state.contadores.equipo1 + 1 } });
+		this.setState((prevState) => ({ contadores: { ...prevState.contadores, equipo1: prevState.contadores.equipo1 + 1 } }));
+		this.setState((prevState) => ({ contadores: { ...prevState.contadores, equipo1: prevState.contadores.equipo1 + 1 } }));
+		this.setState((prevState) => ({ contadores: { ...prevState.contadores, equipo1: prevState.contadores.equipo1 + 1 } }));
+		this.setState((prevState) => ({ contadores: { ...prevState.contadores, equipo1: prevState.contadores.equipo1 + 1 } }));
 	}
 
 	sumar2() {
