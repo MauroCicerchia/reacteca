@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Layout from "./components/Layout";
+import Title from "./components/Title";
 import Products from "./components/Products";
 import "./App.scss";
 
@@ -12,9 +14,10 @@ export default class App extends Component {
 	};
 	render() {
 		return (
-			<div className="container">
+			<Layout>
+				<Title>Tienda</Title>
 				<Products products={this.state.products} addToCart={() => {}} />
-			</div>
+			</Layout>
 		);
 	}
 }
