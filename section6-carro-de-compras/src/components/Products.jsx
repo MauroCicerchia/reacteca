@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product";
-import "./Products.scss";
+import "../styles/Products.scss";
 
 export default class Products extends Component {
 	render() {

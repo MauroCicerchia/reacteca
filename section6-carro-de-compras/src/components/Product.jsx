@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "./Button";
-import "./Product.scss";
+import "../styles/Product.scss";
 
 export default class Product extends Component {
 	render() {
