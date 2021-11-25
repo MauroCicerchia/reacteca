@@ -3,4 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: linear-gradient(-30deg, #414850, #131720); */
+  background-color: #131720;
+  color: #fafafa;
 }

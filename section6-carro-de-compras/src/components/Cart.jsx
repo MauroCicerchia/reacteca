@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import CartBubble from "./CartBubble";
+import CartDetail from "./CartDetail";
 import "../styles/Cart.scss";
 
 export default class Cart extends Component {
 	render() {
-		const { cart } = this.props;
+		const { cart, cartIsOpen, toggleCart } = this.props;
 		const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
 		return (
@@ -14,7 +15,10 @@ export default class Cart extends Component {
 						<CartBubble value={quantity} />
 					</span>
 				)}
-				<button className="cart-button">Carro</button>
+				<button className="cart-button" onClick={toggleCart}>
+					Carro
+				</button>
+				{cartIsOpen && <CartDetail {...this.props} />}
 			</div>
 		);
 	}

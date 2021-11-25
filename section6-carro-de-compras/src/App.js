@@ -8,11 +8,14 @@ import "./App.scss";
 export default class App extends Component {
 	state = {
 		products: [
-			{ name: "Tomate", price: 1500, img: "/productos/tomate.jpg" },
-			{ name: "Arvejas", price: 2500, img: "/productos/arvejas.jpg" },
-			{ name: "Lechuga", price: 500, img: "/productos/lechuga.jpg" },
+			{ name: "Sentinels of Light Vandal", price: 2175, img: "/img/Sentinels_Of_Light_Vandal.png" },
+			{ name: "Glitchpop Vandal", price: 2175, img: "/img/Glitchpop_Vandal.png" },
+			{ name: "Reaver Vandal", price: 1775, img: "/img/Reaver_Vandal.png" },
+			{ name: "Prime Vandal", price: 1775, img: "/img/Prime_Vandal.png" },
+			{ name: "Origin Vandal", price: 1775, img: "/img/Origin_Vandal.png" },
 		],
 		cart: [],
+		cartIsOpen: false,
 	};
 
 	addToCart = (product) => {
@@ -28,10 +31,19 @@ export default class App extends Component {
 		}
 	};
 
+	toggleCart = () => {
+		if (this.state.cart.length === 0) {
+			return;
+		}
+		this.setState({
+			cartIsOpen: !this.state.cartIsOpen,
+		});
+	};
+
 	render() {
 		return (
 			<div>
-				<Navbar cart={this.state.cart} />
+				<Navbar cart={this.state.cart} cartIsOpen={this.state.cartIsOpen} toggleCart={this.toggleCart} />
 				<Layout>
 					<Title>Tienda</Title>
 					<Products products={this.state.products} addToCart={this.addToCart} />

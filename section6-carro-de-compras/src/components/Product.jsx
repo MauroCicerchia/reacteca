@@ -7,11 +7,22 @@ export default class Product extends Component {
 		const { product, addToCart } = this.props;
 		return (
 			<div className="product-container">
-				<img className="product-img" src={product.img} alt={product.name} />
-				<h3 className="product-name">{product.name}</h3>
-				<div className="price-and-button-container">
-					<p className="product-price">${product.price}</p>
-					<Button onClick={() => addToCart(product)}>Agregar al carro</Button>
+				<div className="product-img-container">
+					<div className="product-img-wrapper">
+						<img className="product-img" src={product.img} alt={product.name} />
+					</div>
+				</div>
+				<div className="product-info">
+					<h3 className="product-name">{product.name}</h3>
+					<div className="price-and-button-container">
+						<p className="product-price">
+							<span className="valorant-points">
+								<img src="/img/Valorant_Points.png" alt="valorant points" width="25" height="25" />
+							</span>
+							{product.price}
+						</p>
+						<Button onClick={() => addToCart(product)}>Agregar al carro</Button>
+					</div>
 				</div>
 			</div>
 		);
