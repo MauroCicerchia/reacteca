@@ -1,14 +1,20 @@
 .cart-button {
-    background-color: #359A2C;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--lightpurple);
     color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
-    padding: 15px;
-    border-radius: 15px;
+    padding: 12px 24px;
+    border-radius: 24px;
     cursor: pointer;
+    &:hover {
+        background-color: var(--darkpurple);
+    }
 }
 
 .cart-bubble {
     position: relative;
-    left: 15px;
-    top: -20px;
+    left: 16px;
+    top: -18px;
 }

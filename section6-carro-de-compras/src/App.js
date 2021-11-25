@@ -45,7 +45,7 @@ export default class App extends Component {
 			<div>
 				<Navbar cart={this.state.cart} cartIsOpen={this.state.cartIsOpen} toggleCart={this.toggleCart} />
 				<Layout>
-					<Title>Tienda</Title>
+					{/* <Title>Tienda</Title> */}
 					<Products products={this.state.products} addToCart={this.addToCart} />
 				</Layout>
 			</div>

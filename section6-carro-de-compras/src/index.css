@@ -1,9 +1,22 @@
+:root {
+	--bg-shape-color: linear-gradient(120deg, #343a4f, #0f1620);
+	--lightblue: #3d9dea;
+	--darkblue: #4a4eee;
+	--lightpurple: #AC5CF7;
+	--darkpurple: #58208C;
+	--text-color: #d5e1ef;
+  --dark: #343a4f;
+  --darker: #23242c;
+  --darkest: #0f1620;
+	--radius: 32px;
+}
+
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(-30deg, #414850, #131720); */
-  background-color: #131720;
+  background-color: var(--darker);
   color: #fafafa;
 }
