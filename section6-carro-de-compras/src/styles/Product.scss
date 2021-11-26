@@ -7,9 +7,9 @@
 	background-image: linear-gradient(120deg, var(--dark), var(--darkest));
 	overflow: hidden;
 	&:hover {
-		box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.1);
+		box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
 		& > .product-img-container > .product-img-wrapper > .product-img {
-			transform: scale(1.03);
+			transform: scale(1.05);
 		}
 	}
 	transition: all 0.3s ease-in-out;
