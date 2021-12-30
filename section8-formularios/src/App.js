@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
 	const [form, setForm] = useState({
@@ -9,6 +9,8 @@ function App() {
 		eula: false,
 	});
 
+	const [valid, setValid] = useState(false);
+
 	const handleChange = ({ target: { name, type, value, checked } = {} }) => {
 		setForm((state) => ({
 			...state,
@@ -16,10 +18,15 @@ function App() {
 		}));
 	};
 
-  console.log(form);
+	useEffect(() => {
+		setValid(form.description === "lala");
+	}, [form.description])
+
+	console.log(form);
 
 	return (
 		<div>
+			{valid ? "Todo piola" : "Todo mal"}
 			<input type="text" name="name" value={form.name} onChange={handleChange} />
 			<textarea name="description" value={form.description} onChange={handleChange} />
 			<select name="race" value={form.race} onChange={handleChange}>
