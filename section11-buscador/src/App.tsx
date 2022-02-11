@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Center, Container, Image, Input, Stack, StackDivider, Text, GridItem, SimpleGrid } from "@chakra-ui/react";
+import { Center, Container, Image, Input, Stack, StackDivider, Text, GridItem, SimpleGrid, Box } from "@chakra-ui/react";
 
 type Photo = {
   id: string;
@@ -38,9 +38,10 @@ function App() {
 
   return (
     <Container maxWidth="100%">
-      <Stack divider={<StackDivider />} pt={4} spacing={4}>
+      <Stack divider={<StackDivider borderColor="gray.100" />} pt={4} spacing={4}>
         <Center>
           <Input
+            bgColor="white"
             {...formik.getFieldProps("search")}
             placeholder="Search"
             width="xl"
@@ -53,34 +54,33 @@ function App() {
           </Input>
         </Center>
         <Center width="100%">
-          <SimpleGrid gap={4} gridTemplateColumns="repeat(3, 1fr)" gridTemplateRows="masonry">
+          <div style={{ columnCount: 3, columnGap: 12, columnWidth: "25%" }}>
             {photos.map((photo) => (
-              <GridItem key={photo.id}>
-                <Stack
-                  _hover={{
-                    shadow: "dark-lg",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease-in-out",
-                  }}
-                  bgColor="gray.100"
-                  borderRadius={12}
-                  height="auto"
-                  p={4}
-                  width="sm"
-                  onClick={() => open(photo.links.html)}
-                >
-                  <Image
-                    alt={photo.alt_description}
-                    h="sm"
-                    objectFit="cover"
-                    src={photo.urls.regular}
-                    w="sm"
-                  />
-                  <Text overflowWrap="break-word">{_.capitalize(photo.alt_description)}</Text>
-                </Stack>
-              </GridItem>
+              <Stack
+                key={photo.id}
+                _hover={{
+                  transform: "scale(1.02)",
+                  shadow: "md",
+                  cursor: "pointer",
+                  transition: "all 0.1s ease-in-out",
+                }}
+                bgColor="white"
+                borderRadius={12}
+                height="auto"
+                mb={4}
+                overflow="visible"
+                style={{ breakInside: "avoid-column" }}
+                width="sm"
+                onClick={() => open(photo.links.html)}
+              >
+                <Image
+                  alt={photo.alt_description}
+                  objectFit="cover"
+                  src={photo.urls.regular}
+                />
+              </Stack>
             ))}
-          </SimpleGrid>
+          </div>
         </Center>
       </Stack>
     </Container>
