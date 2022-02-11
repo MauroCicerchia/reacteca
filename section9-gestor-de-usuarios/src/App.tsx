@@ -19,15 +19,19 @@ function App() {
     setUsers([...users, user]);
   };
 
-  console.log(users);
-
   return (
-    <Box bgColor="blue.50" h="100vh" w="100vw">
+    <Box bgColor="#E8F3F3" h="100vh" w="100vw">
       <Center h="100vh">
         <Stack gap={4} w="container.sm">
           <Form onSubmit={addUser} />
           <Card>
-            <Text align="center" fontSize="2xl" fontWeight="bold">
+            <Text
+              align="center"
+              bgColor="sadas"
+              color="asdas"
+              fontSize="2xl"
+              fontWeight="bold"
+            >
               Ya se registraron
             </Text>
             <Stack>
