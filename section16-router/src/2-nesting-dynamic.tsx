@@ -20,7 +20,7 @@ function App() {
       </nav>
       <section>
         <Routes>
-          <Route element={<h1>Home</h1>} path="/" />
+          <Route element={<Home />} path="/" />
           <Route element={<Bloques />} path="/blocks">
             <Route element={<h1>Nuevo bloque</h1>} path="new" />
             <Route element={<Bloque />} path=":id" />
@@ -29,6 +29,12 @@ function App() {
       </section>
     </div>
   );
+}
+
+function Home() {
+  console.log("Renderizando Home");
+
+  return <h1>Home</h1>;
 }
 
 function Bloques() {

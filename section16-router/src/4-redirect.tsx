@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Link,
   NavLink,
@@ -6,7 +6,7 @@ import {
   Outlet,
   Route,
   Routes,
-  useLocation,
+  useNavigate,
   useParams,
 } from "react-router-dom";
 import "./App.css";
@@ -70,6 +70,12 @@ function Bloque() {
 }
 
 function Rich() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/zoe", { replace: true });
+  }, [navigate]);
+
   return (
     // <Navigate to="/zoe" />
     <Navigate replace to="/zoe" />

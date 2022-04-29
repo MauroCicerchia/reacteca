@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
   const query = useQuery();
 
-  console.log("chanchito", query.get("chanchito"));
+  console.log("chanchito:", query.get("chanchito"));
 
   const forward = () => {
     navigate(1);
@@ -34,7 +34,13 @@ function App() {
     <div className="App">
       <button onClick={back}>Back</button>
       <button onClick={forward}>Forward</button>
-      <button onClick={() => navigate("/chanchitofeliz")}>Push</button>
+      <button
+        onClick={() =>
+          navigate("/chanchitofeliz?chanchito=feliz#zoe", { state: { zoe: 1 } })
+        }
+      >
+        Push
+      </button>
       <nav>
         <ul>
           <li>
