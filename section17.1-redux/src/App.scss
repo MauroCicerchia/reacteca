@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8fefe;
+}
+
+.Counter {
+  font-size: 72px;
+  font-weight: 600;
+}
+
+.TodoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Title {
+  margin-left: 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.List {
+  width: 400px;
+}
+
+.Checkbox {
+  background-color: blue;
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button {
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  padding: 0.75em 2em;
+  margin: 0.5em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0.5em #ccc;
+  }
+}
+
+input[type="number"], input[type="text"] {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 260px;
+  padding: 0.75em 2em;
+  margin: 0.5em;
+}
+
+li {
+  list-style-type: georgian;
+  font-size: 24px;
+}
