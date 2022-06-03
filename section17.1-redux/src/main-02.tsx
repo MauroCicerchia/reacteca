@@ -21,6 +21,6 @@ console.log(store.getState());
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <h1>Chanchito deprimido</h1>
   </React.StrictMode>
 );

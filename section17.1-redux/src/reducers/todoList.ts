@@ -34,10 +34,10 @@ const initialState = {
   filter: TodoFilter.ALL,
 } as TodoListState;
 
-const add = createAction<Todo>("todoList/add");
-const remove = createAction<Todo>("todoList/remove");
-const toggle = createAction<Todo>("todoList/toggle");
-const setFilter = createAction<TodoFilter>("todoList/setFilter");
+export const add = createAction<Todo>("todoList/add");
+export const remove = createAction<Todo>("todoList/remove");
+export const toggle = createAction<Todo>("todoList/toggle");
+export const setFilter = createAction<TodoFilter>("todoList/setFilter");
 
 export const itemsReducer = createReducer(initialState.items, {
   [add.type]: (state, action) => [...state, action.payload],

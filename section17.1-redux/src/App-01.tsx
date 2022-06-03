@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store";
+import { decrement, increment, set } from "./reducers/counter";
 import "./App.scss";
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
 
-  const decrement = () => dispatch({ type: "counter/decrement" });
-  const increment = () => dispatch({ type: "counter/increment" });
-  const set = () => {
-    dispatch({ type: "counter/set", payload: parseInt(value || "0") });
+  const _decrement = () => dispatch(decrement());
+  const _increment = () => dispatch(increment());
+  const _set = () => {
+    dispatch(set(parseInt(value || "0")));
     setValue("");
   };
 
@@ -20,8 +21,8 @@ function App() {
     <div className="App">
       <p className="Counter">{state.counter.count}</p>
       <div>
-        <button onClick={decrement}>-1</button>
-        <button onClick={increment}>+1</button>
+        <button onClick={_decrement}>-1</button>
+        <button onClick={_increment}>+1</button>
       </div>
       <div>
         <input
@@ -29,7 +30,7 @@ function App() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button onClick={set}>SET</button>
+        <button onClick={_set}>SET</button>
       </div>
     </div>
   );

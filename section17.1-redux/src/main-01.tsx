@@ -2,7 +2,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AnyAction, createStore } from "redux";
-import App from "./App";
 import "./index.scss";
 
 interface State {
@@ -43,6 +42,6 @@ console.log(store.getState());
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <h1>Chanchito deprimido</h1>
   </React.StrictMode>
 );

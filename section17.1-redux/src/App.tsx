@@ -1,10 +1,10 @@
-// Middlewares
+// useSelector to apply filters
 import _ from "lodash";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store";
 import "./App.scss";
-import { Todo, TodoFilter } from "./reducers/todoList";
+import { Todo, TodoFilter, add, setFilter, toggle } from "./reducers/todoList";
 
 function App() {
   const [value, setValue] = useState("");
@@ -25,29 +25,22 @@ function App() {
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value.trim()) return;
-    dispatch({
-      type: "todoList/add",
-      payload: {
+    dispatch(
+      add({
         id: Math.random(),
         title: value.trim(),
         complete: false,
-      },
-    });
+      })
+    );
     setValue("");
   };
 
-  const toggle = (item: Todo) => {
-    dispatch({
-      type: "todoList/toggle",
-      payload: item,
-    });
+  const _toggle = (item: Todo) => {
+    dispatch(toggle(item));
   };
 
-  const setFilter = (filter: TodoFilter) => {
-    dispatch({
-      type: "todoList/setFilter",
-      payload: filter,
-    });
+  const _setFilter = (filter: TodoFilter) => {
+    dispatch(setFilter(filter));
   };
 
   return (
@@ -61,11 +54,11 @@ function App() {
         <button type="submit">Agregar</button>
       </form>
       <div>
-        <button onClick={() => setFilter(TodoFilter.ALL)}>Todos</button>
-        <button onClick={() => setFilter(TodoFilter.COMPLETE)}>
+        <button onClick={() => _setFilter(TodoFilter.ALL)}>Todos</button>
+        <button onClick={() => _setFilter(TodoFilter.COMPLETE)}>
           Completos
         </button>
-        <button onClick={() => setFilter(TodoFilter.INCOMPLETE)}>
+        <button onClick={() => _setFilter(TodoFilter.INCOMPLETE)}>
           Incompletos
         </button>
       </div>
@@ -77,11 +70,11 @@ function App() {
                 checked={item.complete}
                 className="Checkbox"
                 type="checkbox"
-                onChange={() => toggle(item)}
+                onChange={() => _toggle(item)}
               />
               <span
                 className={`Title${item.complete ? " Completed" : ""}`}
-                onClick={() => toggle(item)}
+                onClick={() => _toggle(item)}
               >
                 {item.title}
               </span>
