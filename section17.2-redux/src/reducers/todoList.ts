@@ -5,9 +5,9 @@ import {
   createReducer,
 } from "@reduxjs/toolkit";
 import _ from "lodash";
+import { RootState } from "../store";
 import fetch from "../utils/fetch";
-import loadingGenerator from "./loadingGenerator";
-import errorGenerator from "./errorGenerator";
+import { errorGenerator, loadingGenerator } from "./generators";
 import { Todo, TodoFilter, TodoListState } from "./todoList.d";
 
 // Imported reducers
@@ -87,6 +87,22 @@ export const itemsReducer = createReducer(initialState.items, {
 export const filterReducer = createReducer(initialState.filter, {
   [setFilter.type]: (state, action) => action.payload,
 });
+
+// Selectors
+export const stateSelector = (state: RootState) => state.todoList;
+
+export const itemsSelector = (state: RootState) => {
+  const { items, filter } = state.todoList;
+
+  if (filter === TodoFilter.COMPLETE) {
+    return items.filter((item) => item.completed);
+  }
+  if (filter === TodoFilter.INCOMPLETE) {
+    return items.filter((item) => !item.completed);
+  }
+
+  return items;
+};
 
 // Final export
 export default combineReducers({

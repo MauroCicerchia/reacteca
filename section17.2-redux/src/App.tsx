@@ -4,7 +4,14 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./store";
 import "./App.scss";
-import { add, fetchItems, setFilter, toggle } from "./reducers/todoList";
+import {
+  add,
+  fetchItems,
+  itemsSelector,
+  setFilter,
+  stateSelector,
+  toggle,
+} from "./reducers/todoList";
 import { Todo, TodoFilter } from "./reducers/todoList.d";
 import TodoList from "./components/TodoList";
 import WithLoading from "./components/WithLoading";
@@ -12,19 +19,8 @@ import WithLoading from "./components/WithLoading";
 function App() {
   const [value, setValue] = useState("");
   const dispatch = useDispatch<AppDispatch>();
-  const state = useSelector((state: RootState) => {
-    const { items, filter, loading, error } = state.todoList;
-    let filteredItems = items;
-
-    if (filter === TodoFilter.COMPLETE) {
-      filteredItems = items.filter((item) => item.completed);
-    }
-    if (filter === TodoFilter.INCOMPLETE) {
-      filteredItems = items.filter((item) => !item.completed);
-    }
-
-    return { items: filteredItems, loading, error };
-  });
+  const items = useSelector(itemsSelector);
+  const { loading, error } = useSelector(stateSelector);
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,8 +46,6 @@ function App() {
   const fetch = () => {
     dispatch(fetchItems());
   };
-
-  const { items, loading, error } = state;
 
   return (
     <div className="App">

@@ -1,5 +1,5 @@
 import React from "react";
-import { LoadingState } from "../reducers/loadingGenerator";
+import { LoadingState } from "../reducers/generators/loadingGenerator";
 import "../App.scss";
 
 type Loading = {
